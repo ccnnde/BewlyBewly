@@ -1,9 +1,10 @@
 import type { APIMAP } from '../utils'
 import { AHS } from '../utils'
+import API from '~/background/msg.define'
 
 const API_HISTORY: APIMAP = {
   // https://github.com/SocialSisterYi/bilibili-API-collect/blob/master/docs/history&toview/history.md#%E8%8E%B7%E5%8F%96%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95%E5%88%97%E8%A1%A8_web%E7%AB%AF
-  getHistoryList: {
+  [API.HISTORY.GET_HISTORY_LIST]: {
     url: 'https://api.bilibili.com/x/web-interface/history/cursor',
     _fetch: {
       method: 'get',
@@ -15,7 +16,7 @@ const API_HISTORY: APIMAP = {
     },
     afterHandle: AHS.J_D,
   },
-  searchHistoryList: {
+  [API.HISTORY.SEARCH_HISTORY_LIST]: {
     url: 'https://api.bilibili.com/x/web-goblin/history/search',
     _fetch: {
       method: 'get',
@@ -28,7 +29,7 @@ const API_HISTORY: APIMAP = {
     afterHandle: AHS.J_D,
   },
   // https://github.com/SocialSisterYi/bilibili-API-collect/blob/master/docs/history&toview/history.md#%E5%88%A0%E9%99%A4%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95
-  deleteHistoryItem: {
+  [API.HISTORY.DELETE_HISTORY_ITEM]: {
     url: 'https://api.bilibili.com/x/v2/history/delete',
     _fetch: {
       method: 'post',
@@ -43,7 +44,7 @@ const API_HISTORY: APIMAP = {
     afterHandle: AHS.J_D,
   },
   // https://github.com/SocialSisterYi/bilibili-API-collect/blob/master/docs/history&toview/history.md#%E6%B8%85%E7%A9%BA%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95
-  clearAllHistory: {
+  [API.HISTORY.CLEAR_ALL_HISTORY]: {
     url: 'https://api.bilibili.com/x/v2/history/clear',
     _fetch: {
       method: 'post',
@@ -57,7 +58,7 @@ const API_HISTORY: APIMAP = {
     afterHandle: AHS.J_D,
   },
   // https://github.com/SocialSisterYi/bilibili-API-collect/blob/master/docs/history&toview/history.md#%E6%9F%A5%E8%AF%A2%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95%E5%81%9C%E7%94%A8%E7%8A%B6%E6%80%81
-  getHistoryPauseStatus: {
+  [API.HISTORY.GET_HISTORY_PAUSE_STATUS]: {
     url: 'https://api.bilibili.com/x/v2/history/shadow',
     _fetch: {
       method: 'get',
@@ -66,7 +67,7 @@ const API_HISTORY: APIMAP = {
     afterHandle: AHS.J_D,
   },
   // https://github.com/SocialSisterYi/bilibili-API-collect/blob/master/docs/history&toview/history.md#%E5%81%9C%E7%94%A8%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95
-  setHistoryPauseStatus: {
+  [API.HISTORY.SET_HISTORY_PAUSE_STATUS]: {
     url: 'https://api.bilibili.com/x/v2/history/shadow/set',
     _fetch: {
       method: 'post',

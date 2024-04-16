@@ -1,8 +1,9 @@
 import type { APIMAP } from '../utils'
 import { AHS } from '../utils'
+import API from '~/background/msg.define'
 
 const API_MOMENT: APIMAP = {
-  getTopBarNewMomentsCount: {
+  [API.MOMENT.GET_TOP_BAR_NEW_MOMENTS_COUNT]: {
     url: 'https://api.bilibili.com/x/web-interface/dynamic/entrance',
     _fetch: {
       method: 'get',
@@ -10,7 +11,7 @@ const API_MOMENT: APIMAP = {
     params: {},
     afterHandle: AHS.J_D,
   },
-  getTopBarNewMoments: {
+  [API.MOMENT.GET_TOP_BAR_NEW_MOMENTS]: {
     url: 'https://api.vc.bilibili.com/dynamic_svr/v1/dynamic_svr/dynamic_new',
     _fetch: {
       method: 'get',
@@ -21,7 +22,7 @@ const API_MOMENT: APIMAP = {
     },
     afterHandle: AHS.J_D,
   },
-  getTopbarHistoryMoments: {
+  [API.MOMENT.GET_TOP_BAR_HISTORY_MOMENTS]: {
     url: 'https://api.vc.bilibili.com/dynamic_svr/v1/dynamic_svr/dynamic_history',
     _fetch: {
       method: 'get',
@@ -33,7 +34,7 @@ const API_MOMENT: APIMAP = {
     },
     afterHandle: AHS.J_D,
   },
-  getTopbarLiveMoments: {
+  [API.MOMENT.GET_TOP_BAR_LIVE_MOMENTS]: {
     url: 'https://api.live.bilibili.com/xlive/web-ucenter/v1/xfetter/FeedList',
     _fetch: {
       method: 'get',
@@ -44,7 +45,7 @@ const API_MOMENT: APIMAP = {
     },
     afterHandle: AHS.J_D,
   },
-  getMoments: {
+  [API.MOMENT.GET_MOMENTS]: {
     url: 'https://api.bilibili.com/x/polymer/web-dynamic/v1/feed/all',
     _fetch: {
       method: 'get',

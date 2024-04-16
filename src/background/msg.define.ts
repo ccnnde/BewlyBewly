@@ -8,6 +8,7 @@ enum AUTH {
 }
 enum ANIME {
   GET = 'getAnime',
+  GET_POPULAR_LIST = 'getPopularAnimeList',
   GET_WATCH_LIST = 'getAnimeWatchList',
   GET_RECOMMEND_LIST = 'getRecommendAnimeList',
   GET_TIME_TABLE = 'getAnimeTimeTable',

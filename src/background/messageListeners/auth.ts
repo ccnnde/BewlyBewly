@@ -1,10 +1,11 @@
 // 由于 sendResponse 复杂, 所以使用自定义的函数
 import type { APIMAP } from '../utils'
 import { AHS } from '../utils'
+import API from '../msg.define'
 
 const API_AUTH: APIMAP = {
   // biliJct 似乎没有使用
-  logout: {
+  [API.AUTH.LOGOUT]: {
     url: 'https://passport.bilibili.com/login/exit/v2',
     _fetch: {
       method: 'post',
@@ -21,7 +22,7 @@ const API_AUTH: APIMAP = {
     },
     afterHandle: AHS.J_S,
   },
-  getLoginQRCode: {
+  [API.AUTH.GET_LOGIN_QR_CODE]: {
     url: 'https://passport.bilibili.com/x/passport-tv-login/qrcode/auth_code',
     _fetch: {
       method: 'post',
@@ -37,7 +38,7 @@ const API_AUTH: APIMAP = {
     },
     afterHandle: AHS.J_S,
   },
-  qrCodeLogin: {
+  [API.AUTH.QR_CODE_LOGIN]: {
     url: 'https://passport.bilibili.com/x/passport-tv-login/qrcode/auth_code',
     _fetch: {
       method: 'post',

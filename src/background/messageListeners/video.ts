@@ -1,8 +1,9 @@
 import type { APIMAP } from '../utils'
 import { AHS } from '../utils'
+import API from '../msg.define'
 
 const API_VIDEO: APIMAP = {
-  getRecommendVideos: {
+  [API.VIDEO.GET_RECOMMEND_VIDEOS]: {
     url: 'https://api.bilibili.com/x/web-interface/index/top/feed/rcmd',
     _fetch: {
       method: 'get',
@@ -16,7 +17,7 @@ const API_VIDEO: APIMAP = {
     },
     afterHandle: AHS.J_D,
   },
-  getAppRecommendVideos: {
+  [API.VIDEO.GET_APP_RECOMMEND_VIDEOS]: {
     url: 'https://app.bilibili.com/x/v2/feed/index',
     _fetch: {
       method: 'get',
@@ -34,7 +35,7 @@ const API_VIDEO: APIMAP = {
     afterHandle: AHS.J_D,
   },
   // https://github.com/indefined/UserScripts/blob/master/bilibiliHome/bilibiliHome.API.md#%E6%8F%90%E4%BA%A4%E4%B8%8D%E5%96%9C%E6%AC%A2
-  dislikeVideo: {
+  [API.VIDEO.DISLIKE_VIDEO]: {
     url: 'https://app.bilibili.com/x/feed/dislike',
     _fetch: {
       method: 'get',
@@ -54,7 +55,7 @@ const API_VIDEO: APIMAP = {
     afterHandle: AHS.J_D,
   },
   // https://github.com/indefined/UserScripts/blob/master/bilibiliHome/bilibiliHome.API.md#%E6%92%A4%E9%94%80%E4%B8%8D%E5%96%9C%E6%AC%A2
-  undoDislikeVideo: {
+  [API.VIDEO.UNDO_DISLIKE_VIDEO]: {
     url: 'https://app.bilibili.com/x/feed/dislike/cancel',
     _fetch: {
       method: 'get',
@@ -74,7 +75,7 @@ const API_VIDEO: APIMAP = {
     afterHandle: AHS.J_D,
   },
   // https://github.com/SocialSisterYi/bilibili-API-collect/blob/master/docs/video/info.md#%E8%8E%B7%E5%8F%96%E8%A7%86%E9%A2%91%E8%B6%85%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AFweb%E7%AB%AF
-  getVideoInfo: {
+  [API.VIDEO.GET_VIDEO_INFO]: {
     url: 'https://api.bilibili.com/x/web-interface/view/detail',
     _fetch: {
       method: 'get',
@@ -86,7 +87,7 @@ const API_VIDEO: APIMAP = {
     afterHandle: AHS.J_D,
   },
   // https://github.com/SocialSisterYi/bilibili-API-collect/blob/master/docs/comment/list.md#%E8%8E%B7%E5%8F%96%E8%AF%84%E8%AE%BA%E5%8C%BA%E6%98%8E%E7%BB%86_%E7%BF%BB%E9%A1%B5%E5%8A%A0%E8%BD%BD
-  getVideoComments: {
+  [API.VIDEO.GET_VIDEO_COMMENTS]: {
     url: 'https://api.bilibili.com/x/v2/reply',
     _fetch: {
       method: 'get',
@@ -103,7 +104,7 @@ const API_VIDEO: APIMAP = {
     afterHandle: AHS.J_D,
   },
   // https://github.com/SocialSisterYi/bilibili-API-collect/blob/def57d7a70ed1f39080069ba0f40648ce6ce2b90/docs/video_ranking/popular.md#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E7%83%AD%E9%97%A8%E8%A7%86%E9%A2%91%E5%88%97%E8%A1%A8
-  getPopularVideos: {
+  [API.VIDEO.GET_POPULAR_VIDEOS]: {
     url: 'https://api.bilibili.com/x/web-interface/popular',
     _fetch: {
       method: 'get',

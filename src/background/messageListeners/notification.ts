@@ -1,8 +1,9 @@
 import type { APIMAP } from '../utils'
 import { AHS } from '../utils'
+import API from '~/background/msg.define'
 
 const API_NOTIFICATION: APIMAP = {
-  getUnreadMsg: {
+  [API.NOTIFICATION.GET_UNREAD_MSG]: {
     url: 'https://api.bilibili.com/x/msgfeed/unread',
     _fetch: {
       method: 'get',
@@ -13,7 +14,7 @@ const API_NOTIFICATION: APIMAP = {
     },
     afterHandle: AHS.J_D,
   },
-  getUnreadDm: {
+  [API.NOTIFICATION.GET_UNREAD_DM]: {
     url: 'https://api.vc.bilibili.com/session_svr/v1/session_svr/single_unread',
     _fetch: {
       method: 'get',

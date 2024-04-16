@@ -5,6 +5,7 @@ import { numFormatter } from '~/utils/dataFormatter'
 import type { List as WatchListItem, WatchListResult } from '~/models/anime/watchList'
 import type { List as PopularAnimeItem, PopularAnimeResult } from '~/models/anime/popular'
 import type { ItemSubItem as RecommendationItem, RecommendationResult } from '~/models/anime/recommendation'
+import API from '~/background/msg.define'
 
 const animeWatchList = reactive<WatchListItem[]>([])
 const recommendAnimeList = reactive<RecommendationItem[]>([])
@@ -60,7 +61,7 @@ function getAnimeWatchList() {
   isLoadingAnimeWatchList.value = true
   browser.runtime
     .sendMessage({
-      contentScriptQuery: 'getAnimeWatchList',
+      contentScriptQuery: API.ANIME.GET_WATCH_LIST,
       vmid: getUserID() ?? 0,
       pn: 1,
       ps: 30,
@@ -83,7 +84,7 @@ function getRecommendAnimeList() {
   isLoadingRecommendAnime.value = true
   browser.runtime
     .sendMessage({
-      contentScriptQuery: 'getRecommendAnimeList',
+      contentScriptQuery: API.ANIME.GET_RECOMMEND_LIST,
       coursor: cursor.value,
     })
     .then((response: RecommendationResult) => {
@@ -111,7 +112,7 @@ function getPopularAnimeList() {
   isLoadingPopularAnime.value = true
   browser.runtime
     .sendMessage({
-      contentScriptQuery: 'getPopularAnimeList',
+      contentScriptQuery: API.ANIME.GET_POPULAR_LIST,
     })
     .then((response: PopularAnimeResult) => {
       const {
