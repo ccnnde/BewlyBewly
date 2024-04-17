@@ -15,8 +15,8 @@ const API_RANKING: APIMAP = {
     },
     afterHandle: AHS.J_D,
   },
-  [API.RANKING.GET_RANKING_PGC]: {
-    url: 'https://api.bilibili.com/pgc/web/rank/list',
+  getRankingPgc: {
+    url: 'https://api.bilibili.com/pgc/season/rank/web/list',
     _fetch: {
       method: 'get',
     },
